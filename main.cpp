@@ -1,12 +1,11 @@
-double my_pow(double base, int exponent){
-	double temp = base;
-	for (int i = 1; i < abs(exponent); i++)
-	{
-		base = base * temp;
-	}
-	if (exponent < 0)
-	{
-		base = 1 / base;
-	}
-	return base;
+double my_pow(double base, unsigned int exponent)
+{
+	if (exponent == 0)
+		return 1;
+	else if (exponent == 1)
+		return base;
+	else if (exponent % 2 == 0)
+		return my_pow(base * base, exponent / 2);
+	else
+		return my_pow(base * base, exponent / 2) * base;
 }
